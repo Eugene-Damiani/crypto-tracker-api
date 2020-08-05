@@ -36,7 +36,8 @@ tofu.
 - Would like to eventually have a Marketplace. Auto send gift ablity for birthday reminder. 
 
 ## Images
+![ERD](https://user-images.githubusercontent.com/65584864/89429611-9fd22300-d6f2-11ea-92d7-02b7f229764a.jpg)
+![WireFrame-CT](https://user-images.githubusercontent.com/65584864/89429620-a2cd1380-d6f2-11ea-90fb-e17add9e6b69.jpg)
 
 ---
 
-### Crypto Tracker Browser Link
