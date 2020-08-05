@@ -1,15 +1,9 @@
-# Crypto Tracker API
+## Crypto Tracker API
 
-# Application Title: A Description
-
-This application allows the user to do x, y, and z. Maybe here's a reason why I
-wanted to do this project, or came up with this idea.
-
+This application allows the user keep track of their crypto investments and where it is located along many different platforms.
 ## Important Links
 
-- [Other Repo](www.link.com)
-- [Deployed API](www.link.com)
-- [Deployed Client](www.link.com)
+- [Deployed Client](https://github.com/Eugene-Damiani/crypto-tracker-browser)
 
 ## Planning Story
 
@@ -32,22 +26,17 @@ tofu.
 
 ### Technologies Used
 
-- jQuery
-- HTML/CSS
-- Bootstrap
-- Javascript
+- Express
+- MongoDB
+- Mongoose
 
 ### Unsolved Problems
 
 - Still need to ....
-- Would like to eventually ....
+- Would like to eventually have a Marketplace. Auto send gift ablity for birthday reminder. 
 
 ## Images
 
-#### Wireframe:
-![wireframe](https://lucidchart.zendesk.com/hc/article_attachments/360001080866/Facebook_Wireframe_-_New_Page.png)
-
 ---
 
-#### ERD:
-![ERD](https://www.smartdraw.com/entity-relationship-diagram/img/cardinality.jpg?bn=1510011144)
+### Crypto Tracker Browser Link
