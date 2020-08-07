@@ -1,6 +1,6 @@
 process.env.TESTENV = true
 
-let Example = require('../app/models/example.js')
+let Crypto = require('../app/models/crypto.js')
 let User = require('../app/models/user')
 
 const crypto = require('crypto')
@@ -16,14 +16,14 @@ const token = crypto.randomBytes(16).toString('hex')
 let userId
 let exampleId
 
-describe('Examples', () => {
+describe('Cryptos', () => {
   const exampleParams = {
     title: '13 JavaScript tricks SEI instructors don\'t want you to know',
     text: 'You won\'believe number 8!'
   }
 
   before(done => {
-    Example.deleteMany({})
+    Crypto.deleteMany({})
       .then(() => User.create({
         email: 'caleb',
         hashedPassword: '12345',
@@ -33,7 +33,7 @@ describe('Examples', () => {
         userId = user._id
         return user
       })
-      .then(() => Example.create(Object.assign(exampleParams, {owner: userId})))
+      .then(() => Crypto.create(Object.assign(exampleParams, {owner: userId})))
       .then(record => {
         exampleId = record._id
         done()
@@ -73,7 +73,7 @@ describe('Examples', () => {
     let exampleId
 
     before(done => {
-      Example.create(Object.assign(exampleParams, { owner: userId }))
+      Crypto.create(Object.assign(exampleParams, { owner: userId }))
         .then(record => {
           exampleId = record._id
           done()
@@ -156,20 +156,20 @@ describe('Examples', () => {
     })
 
     it('should POST an example with the correct params', done => {
-      let validExample = {
+      let validCrypto = {
         title: 'I ran a shell command. You won\'t believe what happened next!',
         text: 'it was rm -rf / --no-preserve-root'
       }
       chai.request(server)
         .post('/examples')
         .set('Authorization', `Bearer ${token}`)
-        .send({ example: validExample })
+        .send({ example: validCrypto })
         .end((e, res) => {
           res.should.have.status(201)
           res.body.should.be.a('object')
           res.body.should.have.property('example')
           res.body.example.should.have.property('title')
-          res.body.example.title.should.eql(validExample.title)
+          res.body.example.title.should.eql(validCrypto.title)
           done()
         })
     })
@@ -184,7 +184,7 @@ describe('Examples', () => {
     }
 
     before(async function () {
-      const record = await Example.create(Object.assign(exampleParams, { owner: userId }))
+      const record = await Crypto.create(Object.assign(exampleParams, { owner: userId }))
       exampleId = record._id
     })
 
