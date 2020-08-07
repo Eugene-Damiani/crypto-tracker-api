@@ -1,5 +1,4 @@
 'use strict'
-
 // instantiate mongodb and mongoose
 const mongoose = require('mongoose')
 // telling mongoose to use node's promise
@@ -11,26 +10,21 @@ mongoose.connect('mongodb://localhost/mongoose-relationships', {
 })
 // connect the db
 const db = mongoose.connection
-
-// require place model
-const crypto = require('./../app/models/crypto')
-
-// get input from command line
-// node bin/place/create.js Boston 42 -71 "United States"
-const cryptoUserInput = process.argv[2]
-const amountUserInput = process.argv[3]
-const exchangeUserInput = process.argv[4]
-
+// require Place model
+const Crypto = require('./../app/models/crypto')
 // open connection to db
 db.once('open', function () {
-  // save place to mongodb
-  crypto.create({
-    asset: cryptoUserInput,
-    amount: amountUserInput,
-    exchange: exchangeUserInput
-  })
+  // find all person documents in mongodb
+  Crypto.find()
+    .populate('asset')
     // printing success or failure
-    .then(console.log)
+    .then(cryptos => {
+      // loop through each place document
+      cryptos.forEach(crypto => {
+        // turning it to json
+        console.log(crypto.toJSON())
+      })
+    })
     .catch(console.error)
     // close connection to db
     .finally(() => db.close())

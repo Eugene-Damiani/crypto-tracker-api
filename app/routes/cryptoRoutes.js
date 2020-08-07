@@ -35,7 +35,7 @@ router.get('/examples', requireToken, (req, res, next) => {
       // `examples` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return examples.map(example => example.toObject())
+      return crypto.map(example => crypto.toObject())
     })
     // respond with status 200 and JSON of the examples
     .then(examples => res.status(200).json({ examples: examples }))
@@ -64,7 +64,7 @@ router.post('/cryptos/', requireToken, (req, res, next) => {
   Crypto.create(req.body.example)
     // respond to succesful `create` with status 201 and JSON of new "example"
     .then(example => {
-      res.status(201).json({ example: example.toObject() })
+      res.status(201).json({ crypto: crypto.toObject() })
     })
     // if an error occurs, pass it off to our error handler
     // the error handler needs the error message and the `res` object so that it

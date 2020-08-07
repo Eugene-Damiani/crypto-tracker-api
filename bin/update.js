@@ -16,7 +16,7 @@ const db = mongoose.connection
 const crypto = require('./../app/models/crypto')
 
 // get input from command line
-// node bin/place/create.js Boston 42 -71 "United States"
+// node bin/place/update.js 123423432 country USA
 const cryptoUserInput = process.argv[2]
 const amountUserInput = process.argv[3]
 const exchangeUserInput = process.argv[4]
@@ -24,13 +24,18 @@ const exchangeUserInput = process.argv[4]
 // open connection to db
 db.once('open', function () {
   // save place to mongodb
-  crypto.create({
-    asset: cryptoUserInput,
-    amount: amountUserInput,
-    exchange: exchangeUserInput
-  })
+  crypto.findById(cryptoUserInput)
     // printing success or failure
-    .then(console.log)
+    .then(crypto => {
+      // update the place object with the passed in key and value
+      crypto[userInputKey] = userInputValue
+
+      // then save the place document in the database
+      return crypto.save()
+    })
+    .then(crypto => {
+      console.log(crypto.toJSON())
+    })
     .catch(console.error)
     // close connection to db
     .finally(() => db.close())

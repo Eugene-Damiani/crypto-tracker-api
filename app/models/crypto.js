@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const cryptoSchema = new mongoose.Schema({
-  crypto: {
+  asset: {
     type: String,
     required: true
   },
