@@ -10,8 +10,8 @@ This application allows the user keep track of their crypto investments and wher
 
 - As a user I want to sign in/up
 - As a user I want to Create a new cyrpto
-- As a user I want to Read multiple cyrpto
-- As a user I want to Read a single cyrpto
+- As a user I want to look up multiple cyrpto
+- As a user I want to lookup a single cyrpto
 - As a user I want to Update a cyrpto I own
 - As a user I want to Delete a cyrpto I own
 
