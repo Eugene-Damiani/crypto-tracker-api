@@ -23,8 +23,8 @@ This application allows the user keep track of their crypto investments and wher
 
 ### Unsolved Problems
 
-- Still need to ....
-- Would like to eventually have a Marketplace. Auto send gift ablity for birthday reminder. 
+- Include charts for each asset.
+- Would like to eventually have a Marketplace. 
 
 ## Images
 ![ERD](https://user-images.githubusercontent.com/65584864/89903809-f9c46400-db9c-11ea-99a2-1dbb2c7e45d8.jpeg)
