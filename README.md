@@ -5,10 +5,6 @@ This application allows the user keep track of their crypto investments and wher
 
 - [Deployed Client](https://github.com/Eugene-Damiani/crypto-tracker-browser)
 
-## Planning Story
-
-Foucs on getting the fron end running properly in the local api. Focused on makeing the track user friendly so that anyone can pick it up.  
-
 
 ### User Stories
 
