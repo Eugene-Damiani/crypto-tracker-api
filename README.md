@@ -1,6 +1,7 @@
 ## Crypto Tracker API
 
-This application allows the user keep track of their crypto investments and where it is located along many different platforms.
+This application was created for the novice and advance investor in mind. Most people who are particpating in the crypto currency market are new to investing and don't understand the pit falls of the space. Some common pit falls are buying and sell emotionally or buying a really cheap token becasuse that one YouTuber recommended it.  The Crypto Tracker is design is simple you log your asset, amount allows the user keep track of their crypto investments and exchange it is located. Future verisons of this app will have a community aspect that will allow users create best practices on selecting a crypto and also a market place. 
+
 ## Important Links
 
 - [Deployed Client](https://github.com/Eugene-Damiani/crypto-tracker-browser)
