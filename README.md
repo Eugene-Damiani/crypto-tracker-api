@@ -7,22 +7,17 @@ This application allows the user keep track of their crypto investments and wher
 
 ## Planning Story
 
-Lorem ipsum dolor amet cloud bread letterpress squid actually, single-origin
-coffee williamsburg af poutine fingerstache austin semiotics paleo man braid
-vexillologist. Tumeric literally banjo pickled disrupt cold-pressed thundercats
-shoreditch try-hard health goth intelligentsia pop-up small batch skateboard
-farm-to-table. Meh tofu fam, direct trade tattooed stumptown etsy everyday
-carry activated charcoal. Neutra cornhole polaroid literally salvia, listicle
-tofu.
+Foucs on getting the fron end running properly in the local api. Focused on makeing the track user friendly so that anyone can pick it up.  
+
 
 ### User Stories
 
 - As a user I want to sign in/up
-- As a user I want to Create a new < resource >
-- As a user I want to Read multiple < resources >
-- As a user I want to Read a single < resource >
-- As a user I want to Update a < resource > I own
-- As a user I want to Delete a < resource > I own
+- As a user I want to Create a new cyrpto
+- As a user I want to Read multiple cyrpto
+- As a user I want to Read a single cyrpto
+- As a user I want to Update a cyrpto I own
+- As a user I want to Delete a cyrpto I own
 
 ### Technologies Used
 
@@ -36,8 +31,8 @@ tofu.
 - Would like to eventually have a Marketplace. Auto send gift ablity for birthday reminder. 
 
 ## Images
-![ERD](https://user-images.githubusercontent.com/65584864/89429611-9fd22300-d6f2-11ea-92d7-02b7f229764a.jpg)
-![WireFrame-CT](https://user-images.githubusercontent.com/65584864/89429620-a2cd1380-d6f2-11ea-90fb-e17add9e6b69.jpg)
+![ERD](https://user-images.githubusercontent.com/65584864/89903809-f9c46400-db9c-11ea-99a2-1dbb2c7e45d8.jpeg)
+
 
 ---
 
