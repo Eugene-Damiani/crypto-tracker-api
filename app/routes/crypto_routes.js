@@ -29,6 +29,7 @@ const router = express.Router()
 
 // INDEX
 // GET /examples
+// $ TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" sh curl-scripts/cryptos/index.sh
 router.get('/cryptos', requireToken, (req, res, next) => {
   Crypto.find()
     .then(crypto => {
@@ -45,6 +46,7 @@ router.get('/cryptos', requireToken, (req, res, next) => {
 
 // SHOW
 // GET /examples/5a7db6c74d55bc51bdf39793
+// ID="5f3e4cec6ad9530a5d205557" TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" sh curl-scripts/cryptos/show.sh
 router.get('/cryptos/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
   Crypto.findById(req.params.id)
@@ -57,6 +59,7 @@ router.get('/cryptos/:id', requireToken, (req, res, next) => {
 
 // CREATE
 // POST /examples
+// $ TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" ASSET='ETH' AMOUNT='8' EXCHANGE='BINANCE'  sh curl-scripts/cryptos/create.sh
 router.post('/cryptos', requireToken, (req, res, next) => {
   // set owner of new example to be current user
   req.body.crypto.owner = req.user.id
@@ -74,6 +77,7 @@ router.post('/cryptos', requireToken, (req, res, next) => {
 
 // UPDATE
 // PATCH /examples/5a7db6c74d55bc51bdf39793
+// ID="5f3e4cec6ad9530a5d205557" TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" ASSET='BTC' AMOUNT='8' EXCHANGE='BINANCE'  sh curl-scripts/cryptos/update.sh
 router.patch('/cryptos/:id', requireToken, removeBlanks, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
@@ -97,6 +101,7 @@ router.patch('/cryptos/:id', requireToken, removeBlanks, (req, res, next) => {
 
 // DESTROY
 // DELETE /examples/5a7db6c74d55bc51bdf39793
+// ID="5f3e4cec6ad9530a5d205557" TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" sh curl-scripts/cryptos/destroy.sh
 router.delete('/cryptos/:id', requireToken, (req, res, next) => {
   Crypto.findById(req.params.id)
     .then(handle404)

@@ -10,8 +10,8 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "crypto": {
-      "asset": "'"${TEXT}"'",
-      "amount": "'"${TITLE}"'",
+      "asset": "'"${ASSET}"'",
+      "amount": "'"${AMOUNT}"'",
       "exchange": "'"${EXCHANGE}"'"
     }
   }'
