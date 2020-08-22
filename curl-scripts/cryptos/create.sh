@@ -1,13 +1,10 @@
 #!/bin/bash
 
-API="http://localhost:4741"
-URL_PATH="/cryptos"
-
-curl "${API}${URL_PATH}" \
+curl "http://localhost:4741/cryptos" \
   --include \
   --request POST \
-  --header "Content-Type: application/json" \
   --header "Authorization: Bearer ${TOKEN}" \
+  --header "Content-Type: application/json" \
   --data '{
     "crypto": {
       "asset": "'"${ASSET}"'",
@@ -15,5 +12,6 @@ curl "${API}${URL_PATH}" \
       "exchange": "'"${EXCHANGE}"'"
     }
   }'
+
 
 echo

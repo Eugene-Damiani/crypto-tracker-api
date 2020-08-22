@@ -6,7 +6,7 @@ const cryptoSchema = new mongoose.Schema({
     required: true
   },
   amount: {
-    type: String,
+    type: Number,
     required: true
   },
   exchange: {
@@ -19,8 +19,7 @@ const cryptoSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  timestamps: true,
-  toObject: {virtuals: true}
+  timestamps: true
 })
 
 module.exports = mongoose.model('Crypto', cryptoSchema)

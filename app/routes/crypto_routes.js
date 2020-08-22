@@ -31,16 +31,11 @@ const router = express.Router()
 // GET /examples
 // $ TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" sh curl-scripts/cryptos/index.sh
 router.get('/cryptos', requireToken, (req, res, next) => {
-  Crypto.find()
+  Crypto.find({ owner: req.user.id })
     .then(crypto => {
-      // `examples` will be an array of Mongoose documents
-      // we want to convert each one to a POJO, so we use `.map` to
-      // apply `.toObject` to each one
       return crypto.map(crypto => crypto.toObject())
     })
-    // respond with status 200 and JSON of the examples
     .then(crypto => res.status(200).json({ crypto: crypto }))
-    // if an error occurs, pass it to the handler
     .catch(next)
 })
 
@@ -48,8 +43,8 @@ router.get('/cryptos', requireToken, (req, res, next) => {
 // GET /examples/5a7db6c74d55bc51bdf39793
 // ID="5f3e4cec6ad9530a5d205557" TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" sh curl-scripts/cryptos/show.sh
 router.get('/cryptos/:id', requireToken, (req, res, next) => {
-  // req.params.id will be set based on the `:id` in the route
-  Crypto.findById(req.params.id)
+  const id = req.params.id
+  Crypto.findById(id)
     .then(handle404)
     // if `findById` is succesful, respond with 200 and "example" JSON
     .then(crypto => res.status(200).json({ crypto: crypto.toObject() }))
@@ -63,8 +58,8 @@ router.get('/cryptos/:id', requireToken, (req, res, next) => {
 router.post('/cryptos', requireToken, (req, res, next) => {
   // set owner of new example to be current user
   req.body.crypto.owner = req.user.id
-
-  Crypto.create(req.body.crypto)
+  const crypto = req.body.crypto
+  Crypto.create(crypto)
     // respond to succesful `create` with status 201 and JSON of new "example"
     .then(crypto => {
       res.status(201).json({ crypto: crypto.toObject() })
@@ -82,8 +77,9 @@ router.patch('/cryptos/:id', requireToken, removeBlanks, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
   delete req.body.crypto.owner
-
-  Crypto.findById(req.params.id)
+  const id = req.params.id
+  const data = req.body.crypto
+  Crypto.findById(id)
     .then(handle404)
     .then(crypto => {
       // pass the `req` object and the Mongoose record to `requireOwnership`
@@ -91,7 +87,7 @@ router.patch('/cryptos/:id', requireToken, removeBlanks, (req, res, next) => {
       requireOwnership(req, crypto)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return crypto.updateOne(req.body.crypto)
+      return crypto.updateOne(data)
     })
     // if that succeeded, return 204 and no JSON
     .then(() => res.sendStatus(204))
@@ -103,7 +99,8 @@ router.patch('/cryptos/:id', requireToken, removeBlanks, (req, res, next) => {
 // DELETE /examples/5a7db6c74d55bc51bdf39793
 // ID="5f3e4cec6ad9530a5d205557" TOKEN="5d2e6d74702a0be341dc3cba0f19a83b" sh curl-scripts/cryptos/destroy.sh
 router.delete('/cryptos/:id', requireToken, (req, res, next) => {
-  Crypto.findById(req.params.id)
+  const id = req.params.id
+  Crypto.findById(id)
     .then(handle404)
     .then(crypto => {
       // throw an error if current user doesn't own `example`
