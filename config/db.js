@@ -1,12 +1,12 @@
 'use strict'
 
 // creating a base name for the mongodb
-const cryptoTracker = 'crypto-api'
+const mongooseBaseName = 'crypto-api'
 
 // create the mongodb uri for development and test
 const database = {
-  development: `mongodb://localhost/${cryptoTracker}-development`,
-  test: `mongodb://localhost/${cryptoTracker}-test`
+  development: `mongodb://localhost/${mongooseBaseName}-development`,
+  test: `mongodb://localhost/${mongooseBaseName}-test`
 }
 
 // Identify if development environment is test or development
