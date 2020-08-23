@@ -1,6 +1,9 @@
 #!/bin/bash
 
-curl "http://localhost:4741/cryptos" \
+API="http://localhost:4741"
+URL_PATH="/cryptos"
+
+curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Authorization: Bearer ${TOKEN}" \

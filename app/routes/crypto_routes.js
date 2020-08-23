@@ -74,7 +74,7 @@ router.post('/cryptos', requireToken, (req, res, next) => {
 
 // UPDATE
 // PATCH /examples/5a7db6c74d55bc51bdf39793
-// ID=5f2ad964b9b13ce76aecc4c3 TOKEN="b8b0691a9816b64f475e2dab61850a4f" TEXT="My FIRST recipe" sh curl-scripts/cryptos/update.sh
+// ID=5f2ad964b9b13ce76aecc4c3 TOKEN="b8b0691a9816b64f475e2dab61850a4f" TEXT="My FIRST crypto" sh curl-scripts/cryptos/update.sh
 router.patch('/cryptos/:id', requireToken, removeBlanks, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
