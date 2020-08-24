@@ -19,7 +19,8 @@ const cryptoSchema = new mongoose.Schema({
     required: true
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toObject: {virtuals: true}
 })
 
 module.exports = mongoose.model('Crypto', cryptoSchema)

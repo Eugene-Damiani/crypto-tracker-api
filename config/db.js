@@ -1,7 +1,7 @@
 'use strict'
 
 // creating a base name for the mongodb
-const mongooseBaseName = 'crypto-api'
+const mongooseBaseName = 'crypto-tracker-api'
 
 // create the mongodb uri for development and test
 const database = {
